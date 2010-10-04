@@ -1,0 +1,16 @@
+<%= semantic_form_for @package do |form| %>
+  <%= form.inputs do %>
+    <%= form.input :name %>
+    <%= form.input :tags %>
+    <%= form.input :url %>
+    <%= form.input :description %>
+    <%= form.semantic_fields_for :versions do |version_form| %>
+      <%= version_form.input :min_sdk %>
+      <%= version_form.input :license %>
+      <%= version_form.input :license_url %>
+    <% end %>
+  <% end %>
+  <%= form.buttons do %>
+    <%= form.commit_button 'Publicize' %>
+  <% end %>
+<% end %>

@@ -1,0 +1,8 @@
+<%= div_for(package) do %>
+  <%= link_to package.name, package_path(package) %>
+  <%= package.maintainer_name %>
+  <%= package.organization_name %>
+  <%= link_tags(package.tags) %>
+  <%= package.newest_version_number %>
+  <%= package.newest_version_date %>
+<% end %>

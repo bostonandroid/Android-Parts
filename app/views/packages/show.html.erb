@@ -1,0 +1,45 @@
+<% content_for :title, @package.name %>
+
+<ul>
+  <li><%= link_to 'JAR', '#' %></li>
+  <li><%= link_to 'Source', '#' %></li>
+  <li><%= link_to 'Web site', '#' %></li>
+  <li><%= link_to 'Documentation', '#' %></li>
+  <li><%= link_to @package.maintainer_name, '#' %></li>
+  <li><%= link_to @package.organization_name, '#' %></li>
+</ul>
+
+<div>
+  <%= simple_format @package.description %>
+</div>
+
+<dl>
+  <dt>License</dt>
+  <dd><%= link_to @package.license, @package.license_url %></dd>
+  <dt>Tags</dt>
+  <dd><%= link_tags(@package.tags) %></dd>
+</dl>
+
+<h2>Versions</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Version</th>
+      <th>Date</th>
+      <th>Min SDK</th>
+      <th>Download</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @package.versions.each do |version| %>
+      <tr>
+        <th><%= version.number %></th>
+        <td><%= version.date %></td>
+        <td><%= version.min_sdk %></td>
+        <td><%= link_to 'JAR', '#' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<p>More from <%= link_to @package.maintainer_name, '#' %> and <%= link_to @package.organization_name, '#' %>.</p>

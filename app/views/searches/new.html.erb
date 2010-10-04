@@ -1,0 +1,12 @@
+<%= content_for :title, "Android Parts" %>
+
+<%= semantic_form_for @search, :html => {:method => :get} do |form| %>
+  <%= form.inputs do %>
+    <%= form.input :query %>
+  <% end %>
+  <%= form.buttons do %>
+    <%= form.commit_button 'Search' %>
+  <% end %>
+<% end %>
+
+<%= render :partial => 'nav' %>

@@ -1,0 +1,16 @@
+<%= content_for :title, "#{@search.query} - Android Parts" %>
+
+<%= semantic_form_for @search, :html => {:method => :get} do |form| %>
+  <%= form.inputs do %>
+    <%= form.input :query %>
+  <% end %>
+  <%= form.buttons do %>
+    <%= form.commit_button 'Search within' %>
+    <%= form.commit_button 'Search globally' %>
+  <% end %>
+<% end %>
+
+
+<%= render :partial => :package, :collection => @search.results %>
+
+<%= render :partial => 'nav' %>
