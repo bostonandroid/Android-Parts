@@ -18,7 +18,8 @@ class Package < ActiveRecord::Base
         lower(packages.name) = :query
         OR :query IN (
           SELECT lower(tags.name) FROM tags
-          JOIN taggings ON taggings.taggable_id = packages.id
+          JOIN taggings ON taggings.tag_id = tags.id
+          WHERE taggings.taggable_id = packages.id
           AND taggings.taggable_type = 'Package'
         )
       HERE

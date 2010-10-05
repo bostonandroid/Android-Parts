@@ -4,7 +4,7 @@ Androidparts::Application.routes.draw do
   resources :searches, :only => [:new, :index]
   resource :session, :only => [:new, :create, :destroy]
   resources :maintainers, :only => [:edit,:update]
-  resources :packages, :only => [:new, :create, :show]
+  resources :packages, :only => [:index, :new, :create, :show, :edit, :update]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

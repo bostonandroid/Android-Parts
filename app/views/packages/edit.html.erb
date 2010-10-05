@@ -1,0 +1,11 @@
+<%= semantic_form_for @package do |form| %>
+  <%= form.inputs do %>
+    <%= form.input :name %>
+    <%= form.input :tags %>
+    <%= form.input :url %>
+    <%= form.input :description %>
+  <% end %>
+  <%= form.buttons do %>
+    <%= form.commit_button 'Update' %>
+  <% end %>
+<% end %>

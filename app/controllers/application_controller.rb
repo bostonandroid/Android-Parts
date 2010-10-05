@@ -7,6 +7,10 @@ class ApplicationController < ActionController::Base
     session[:stored_location] = l
   end
 
+  def store_location!
+    store_location(url_for)
+  end
+
   def stored_location
     session[:stored_location]
   end
@@ -28,4 +32,16 @@ class ApplicationController < ActionController::Base
     session[:maintainer_id].present?
   end
   helper_method :signed_in?
+
+  def signed_out?
+    !signed_in?
+  end
+
+  def ensure_authenticated
+    if signed_out?
+      store_location!
+      flash[:failure] = 'You must be signed in.'
+      redirect_to new_session_url
+    end
+  end
 end
