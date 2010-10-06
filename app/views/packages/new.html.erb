@@ -5,6 +5,7 @@
     <%= form.input :url %>
     <%= form.input :description %>
     <%= form.semantic_fields_for :versions do |version_form| %>
+      <%= version_form.input :number %>
       <%= version_form.input :min_sdk %>
       <%= version_form.input :license %>
       <%= version_form.input :license_url %>

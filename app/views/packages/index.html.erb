@@ -1,5 +1,5 @@
 <ul>
   <% @packages.each do |package| %>
-    <li><%= link_to package.name, edit_package_path(package) %></li>
+    <li><%= link_to package.name, edit_package_path(package) %> - <%= link_to 'Add new version', new_package_version_path(package)%> </li>
   <% end %>
 </ul>
