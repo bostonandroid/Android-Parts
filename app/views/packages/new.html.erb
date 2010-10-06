@@ -1,14 +1,16 @@
-<%= semantic_form_for @package do |form| %>
+<%= semantic_form_for @package, :html => {:multipart => true} do |form| %>
   <%= form.inputs do %>
     <%= form.input :name %>
     <%= form.input :tags %>
     <%= form.input :url %>
     <%= form.input :description %>
+    <!-- TODO: move into partial, share with versions/new.html.erb -->
     <%= form.semantic_fields_for :versions do |version_form| %>
       <%= version_form.input :number %>
       <%= version_form.input :min_sdk %>
       <%= version_form.input :license %>
       <%= version_form.input :license_url %>
+      <%= version_form.input :jar, :as => :file %>
     <% end %>
   <% end %>
   <%= form.buttons do %>

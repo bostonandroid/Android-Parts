@@ -14,6 +14,7 @@ gem "flutie"
 gem "dynamic_form"
 gem 'rack-openid', :require => 'rack/openid'
 gem 'pg'
+gem 'paperclip'
 
 # http://blog.davidchelimsky.net/2010/07/11/rspec-rails-2-generators-and-rake-tasks/
 group :development, :test, :cucumber do

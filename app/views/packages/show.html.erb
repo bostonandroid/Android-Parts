@@ -36,7 +36,9 @@
         <th><%= version.number %></th>
         <td><%= version.date %></td>
         <td><%= version.min_sdk %></td>
-        <td><%= link_to 'JAR', '#' %></td>
+        <% if version.jar.file? %>
+          <td><%= link_to 'JAR', version.jar.url %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

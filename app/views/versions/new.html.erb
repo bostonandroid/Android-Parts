@@ -1,9 +1,10 @@
-<%= semantic_form_for [@package,@version] do |form| %>
+<%= semantic_form_for [@package,@version], :html => {:multipart => true} do |form| %>
   <%= form.inputs do %>
     <%= form.input :number %>
     <%= form.input :min_sdk %>
     <%= form.input :license %>
     <%= form.input :license_url %>
+    <%= form.input :jar, :as => :file %>
   <% end %>
   <%= form.buttons do %>
     <%= form.commit_button 'Publicize' %>
