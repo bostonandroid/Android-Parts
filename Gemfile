@@ -9,7 +9,6 @@ gem "RedCloth", :require => "redcloth"
 gem "paperclip"
 gem "will_paginate"
 gem "formtastic"
-gem "mysql"
 gem "flutie"
 gem "dynamic_form"
 gem 'rack-openid', :require => 'rack/openid'
