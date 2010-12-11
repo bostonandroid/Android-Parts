@@ -1,10 +1,16 @@
 <% content_for :title, @package.name %>
 
 <ul>
-  <li><%= link_to 'JAR', '#' %></li>
+  <% if @package.jar.file? %>
+    <li><%= link_to 'JAR', @package.jar_url %></li>
+  <% end %>
   <li><%= link_to 'Source', '#' %></li>
-  <li><%= link_to 'Web site', '#' %></li>
-  <li><%= link_to 'Documentation', '#' %></li>
+  <% if @package.url.present? %>
+    <li><%= link_to 'Web site', @package.url %></li>
+  <% end %>
+  <% if @package.doc.file? %>
+    <li><%= link_to 'Documentation', @package.doc_url %></li>
+  <% end %>
   <li><%= link_to @package.maintainer_name, '#' %></li>
   <li><%= link_to @package.organization_name, '#' %></li>
 </ul>
@@ -28,6 +34,7 @@
       <th>Date</th>
       <th>Min SDK</th>
       <th>Download</th>
+      <th>Download Javadoc</th>
     </tr>
   </thead>
   <tbody>
@@ -38,6 +45,13 @@
         <td><%= version.min_sdk %></td>
         <% if version.jar.file? %>
           <td><%= link_to 'JAR', version.jar.url %></td>
+        <% else %>
+          <td>&nbsp;</td>
+        <% end %>
+        <% if version.doc.file?%>
+          <td><%= link_to 'Javadoc', version.doc.url %></td>
+        <% else %>
+          <td>&nbsp;</td>
         <% end %>
       </tr>
     <% end %>

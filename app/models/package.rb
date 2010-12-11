@@ -36,4 +36,20 @@ class Package < ActiveRecord::Base
   def newest_version
     versions.newest
   end
+
+  def jar
+    newest_version.jar
+  end
+
+  def jar_url
+    jar.url
+  end
+
+  def doc
+    newest_version.doc
+  end
+
+  def doc_url
+    doc.url
+  end
 end

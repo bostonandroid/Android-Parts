@@ -11,6 +11,7 @@
       <%= version_form.input :license %>
       <%= version_form.input :license_url %>
       <%= version_form.input :jar, :as => :file %>
+      <%= version_form.input :doc, :as => :file, :label => 'Documentation (JAR or Zip)' %>
     <% end %>
   <% end %>
   <%= form.buttons do %>

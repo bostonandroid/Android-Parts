@@ -5,6 +5,7 @@
     <%= form.input :license %>
     <%= form.input :license_url %>
     <%= form.input :jar, :as => :file %>
+    <%= form.input :doc, :as => :file, :label => 'Documentation (JAR or Zip)' %>
   <% end %>
   <%= form.buttons do %>
     <%= form.commit_button 'Publicize' %>

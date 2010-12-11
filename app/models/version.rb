@@ -1,6 +1,7 @@
 class Version < ActiveRecord::Base
   belongs_to :package
   has_attached_file :jar
+  has_attached_file :doc
 
   def self.by_created_at
     order('created_at ASC')
